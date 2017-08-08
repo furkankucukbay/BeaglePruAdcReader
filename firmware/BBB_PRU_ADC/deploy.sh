@@ -32,6 +32,14 @@
 #
 #############################################################################
 
+###############################################################################
+#
+# Modifications to the Zubeen Tolani's deploy.sh file made by Furkan Küçükbay:
+#	one pruout pin added
+#	pin configurations changed
+#
+################################################################################
+
 
 # The script builds the pru_pin_state_reader project and configures the pinmuxing for P8_45
 
