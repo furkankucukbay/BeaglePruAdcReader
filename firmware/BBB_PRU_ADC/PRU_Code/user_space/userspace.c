@@ -1,3 +1,11 @@
+// 
+// Source Modified by Furkan Küçükbay
+// Based on the example provided by Gregory Raven at
+// 	https://github.com/Greg-R/pruadc1/user_space
+//
+
+
+
 #include <fcntl.h>
 #include <math.h>
 #include <stdint.h>
