@@ -64,23 +64,28 @@ int main(int argc, char **argv) {
 
 		for(int j = 0; j < bufferSize; j = j + 1){
 
-			//if( sinebuf[j] < 52800){
-			//	sinebuf[j] = 52800;
-			// }
-
-			//result = result + ( (sinebuf[j] - 52800)/920 );
-
-			result =  sinebuf[j];   //- 52800 )/920 ;
+			result =  result + sinebuf[j];   
 			
-			printf("%d", result);
-			printf("\n");
-			result = 0;
+			//printf("%d", result);      // Comment those out if you want
+			//printf("\n");		     // to see each of ten buffer values.
+			//result = 0;		     // Change result to result = sinebuf[j];		
 			
 			//fprintf( fpointer, "%d", sinebuf[j]);
 			//fprintf( fpointer, "\n");
 		}
 		//fprintf( fpointer, "------------------------\n");
 		printf( "-----------------\n");
+		
+		result = result / bufferSize;        // Average of 10 samples in each receive from pru is taken as 1 
+
+		if ( result < 68700){		     // After calibrations, offset was found to 68700 (ADC Value)   
+			result = 68700;		     
+		}
+		result = (result - 68700) / 1382;    // After calibrations, 1 gr was found to be 1382 (ADC Value)
+		printf("%d", result);                 
+		printf(" gr");
+		printf("\n");
+		result = 0;
 		
 		time(&end_t);
 		diff_t = (float)( difftime(end_t, start_t) );
